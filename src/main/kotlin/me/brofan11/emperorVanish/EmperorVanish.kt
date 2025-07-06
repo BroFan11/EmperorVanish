@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scoreboard.DisplaySlot
-import org.bukkit.scoreboard.Criteria
+
 import java.io.File
 import java.util.*
 import java.util.regex.Pattern
@@ -102,10 +102,10 @@ class EmperorVanish : JavaPlugin(), Listener {
 
     private fun updateScoreboard(player: Player) {
         val scoreboardManager = Bukkit.getScoreboardManager()
-        val scoreboard = scoreboardManager?.newScoreboard ?: return
+        val scoreboard = scoreboardManager.newScoreboard
         val objective = scoreboard.registerNewObjective(
             "vanish",
-            Criteria.DUMMY,
+            "dummy",
             Component.text(colorize(messages.getString("scoreboard.title", "&6&lEMPEROR &e&lVANISH")))
         )
         objective.displaySlot = DisplaySlot.SIDEBAR
@@ -184,25 +184,26 @@ class EmperorVanish : JavaPlugin(), Listener {
     }
 
     private fun applyInternalPlaceholders(player: Player, text: String): String {
-        return text
-            .replace("{player}", player.name)
-            .replace("{player_uuid}", player.uniqueId.toString())
-            .replace("{player_health}", player.health.toInt().toString())
-            .replace("{player_max_health}", player.maxHealth.toInt().toString())
-            .replace("{player_food}", player.foodLevel.toString())
-            .replace("{player_exp}", player.exp.toInt().toString())
-            .replace("{player_level}", player.level.toString())
-            .replace("{player_gamemode}", player.gameMode.name.lowercase())
-            .replace("{player_world}", player.world.name)
-            .replace("{player_x}", player.location.blockX.toString())
-            .replace("{player_y}", player.location.blockY.toString())
-            .replace("{player_z}", player.location.blockZ.toString())
-            .replace("{server_online}", Bukkit.getOnlinePlayers().size.toString())
-            .replace("{server_max_online}", Bukkit.getMaxPlayers().toString())
-            .replace("{server_tps}", "20.0") // Placeholder, could be enhanced with actual TPS
-            .replace("{server_time}", System.currentTimeMillis().toString())
-            .replace("{staff_count}", Bukkit.getOnlinePlayers().count { it.hasPermission("emperorvanish.see") }.toString())
-            .replace("{vanished_count}", vanishedPlayers.size.toString())
+        var result = text
+        result = result.replace("{player}", player.name)
+        result = result.replace("{player_uuid}", player.uniqueId.toString())
+        result = result.replace("{player_health}", player.health.toInt().toString())
+        result = result.replace("{player_max_health}", player.maxHealth.toInt().toString())
+        result = result.replace("{player_food}", player.foodLevel.toString())
+        result = result.replace("{player_exp}", player.exp.toInt().toString())
+        result = result.replace("{player_level}", player.level.toString())
+        result = result.replace("{player_gamemode}", player.gameMode.name.lowercase())
+        result = result.replace("{player_world}", player.world.name)
+        result = result.replace("{player_x}", player.location.blockX.toString())
+        result = result.replace("{player_y}", player.location.blockY.toString())
+        result = result.replace("{player_z}", player.location.blockZ.toString())
+        result = result.replace("{server_online}", Bukkit.getOnlinePlayers().size.toString())
+        result = result.replace("{server_max_online}", Bukkit.getMaxPlayers().toString())
+        result = result.replace("{server_tps}", "20.0") // Placeholder, could be enhanced with actual TPS
+        result = result.replace("{server_time}", System.currentTimeMillis().toString())
+        result = result.replace("{staff_count}", Bukkit.getOnlinePlayers().count { it.hasPermission("emperorvanish.see") }.toString())
+        result = result.replace("{vanished_count}", vanishedPlayers.size.toString())
+        return result
     }
 
     private fun colorize(text: String?): String {

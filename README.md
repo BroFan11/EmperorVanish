@@ -50,7 +50,7 @@ vanish:
 Edit `src/main/resources/messages.yml` to customize all plugin messages, scoreboard lines, and formats. Supports color codes and hex colors.
 
 ## Dependencies
-- [PaperMC 1.18+](https://papermc.io/) (or compatible Spigot server)
+- [PaperMC 1.18.2+](https://papermc.io/) (or compatible Spigot server)
 - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) (optional, for additional placeholders)
 
 ## Installation

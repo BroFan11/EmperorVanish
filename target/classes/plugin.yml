@@ -1,7 +1,7 @@
 name: EmperorVanish
 version: '1.0.0'
 main: me.brofan11.emperorVanish.EmperorVanish
-api-version: 1.18
+api-version: 1.21
 authors: [brofan11]
 softdepend: [PlaceholderAPI]
 description: A modern vanish plugin with scoreboard support
