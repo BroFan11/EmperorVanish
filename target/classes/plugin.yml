@@ -1,0 +1,22 @@
+name: EmperorVanish
+version: '1.0.0'
+main: me.brofan11.emperorVanish.EmperorVanish
+api-version: 1.18
+authors: [brofan11]
+softdepend: [PlaceholderAPI]
+description: A modern vanish plugin with scoreboard support
+
+commands:
+  emperorvanish:
+    description: Main vanish command
+    aliases: [v, vanish]
+    permission: emperorvanish.use
+    usage: /<command>
+
+permissions:
+  emperorvanish.use:
+    description: Allows use of vanish command
+    default: op
+  emperorvanish.see:
+    description: Allows seeing vanished players
+    default: op

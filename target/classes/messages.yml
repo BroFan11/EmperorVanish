@@ -1,0 +1,34 @@
+# Messages for EmperorVanish
+prefix: "&8[&6Emperor&eVanish&8] "
+vanish-enabled: "&aYou are now vanished!"
+vanish-disabled: "&cYou are now visible!"
+no-permission: "&cYou don't have permission to use this command!"
+
+# Scoreboard Settings
+scoreboard:
+  title: "&6&lEMPEROR &e&lVANISH"
+  lines:
+    - "&7&m----------------------"
+    - "&fOnline Staff:"
+    - "{staff_list}"
+    - ""
+    - "&fVanished Players:"
+    - "{vanished_list}"
+    - ""
+    - "&fOnline Players: &e{online_players}"
+    - "&7&m----------------------"
+
+# Placeholder formats
+formats:
+  staff-format: "&e{player}"
+  vanished-format: "&7{player}"
+  no-players: "&7None"
+  list-separator: "&7, "
+
+# You can use hex colors like this: <#ff5555>This is custom red text
+# Or use regular minecraft colors with & symbol
+# 
+# Available internal placeholders:
+# Player: {player}, {player_health}, {player_level}, {player_gamemode}, {player_world}
+# Server: {server_online}, {server_max_online}, {staff_count}, {vanished_count}
+# Vanish: {staff_list}, {vanished_list}, {online_players}
